@@ -1,17 +1,6 @@
-# Base image
-FROM python:3.9-slim
-
-# Set working directory
+FROM python:3.10
 WORKDIR /app
-
-# Copy application files
-COPY app.py /app
-
-# Install dependencies
-RUN pip install flask
-
-# Expose the application's port
-EXPOSE 8080
-
-# Command to run the app
-CMD ["python", "app.py"]
+COPY . /app
+RUN pip install -r requirements.txt
+EXPOSE 5000
+CMD ["python","app.py"]
